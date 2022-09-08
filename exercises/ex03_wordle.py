@@ -6,8 +6,9 @@ WHITE_BOX: str = "\U00002B1C"
 GREEN_BOX: str = "\U0001F7E9"
 YELLOW_BOX: str = "\U0001F7E8"
 
+
 def contains_char(word: str, char: str) -> bool:
-    """Return True if char is found at any index of word, and return False otherwise"""
+    """Return True if char is found at any index of word, and return False otherwise."""
     assert len(char) == 1
     i: int = 0
     while i < len(word):
@@ -17,8 +18,9 @@ def contains_char(word: str, char: str) -> bool:
             i += 1
     return False
 
+
 def emojified(guess_word: str, secret_word: str) -> str:
-    """Return a string of emoji whose color codifies the same as previously implemented in EX02"""
+    """Return a string of emoji whose color codifies the same as previously implemented in EX02."""
     assert len(guess_word) == len(secret_word)
     result: str = ""
     i: int = 0
@@ -32,7 +34,8 @@ def emojified(guess_word: str, secret_word: str) -> str:
         i += 1
     return result
 
-def input_guess(n: str) -> str:
+
+def input_guess(n: int) -> str:
     """Continue prompting users until they provide a guess of the expected length."""
     input_word: str = input(f"Enter a {n} character word: ")
     while True:
@@ -40,6 +43,7 @@ def input_guess(n: str) -> str:
             input_word = input(f"That wasn't {n} chars! Try again: ")
         elif len(input_word) == n:
             return input_word
+
 
 def main() -> None:
     """The entrypoint of the program and main game loop."""
@@ -58,6 +62,7 @@ def main() -> None:
             current_turn += 1
         else:
             current_turn += 1
+
 
 if __name__ == "__main__":
     main()
