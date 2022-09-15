@@ -2,15 +2,15 @@
 
 __author__ = "730433734"
 
-import re
 
-
-def all(input_list: list[int], number: int) -> bool:
+def all(xs: list[int], number: int) -> bool:
     """Check whether all numbers in list match the input integer."""
+    if len(xs) == 0:
+        return False
     is_match: bool = True
     i: int = 0
-    while i < len(input_list) and is_match is True:
-        if input_list[i] != number:
+    while i < len(xs):
+        if xs[i] != number:
             is_match = False
             return is_match
         else:
@@ -18,17 +18,20 @@ def all(input_list: list[int], number: int) -> bool:
     return is_match
 
 
-def max(input_list: list[int]) -> int:
+def max(input: list[int]) -> int:
     """Return the largest number in the list."""
-    if len(input_list) == 0:
+    if len(input) == 0:
         raise ValueError("max() arg is an empty List")
-    result: int = input_list[0]
-    index: int = 0
-    while index < len(input_list):
-        if input_list[index] >= result:
-            result = input_list[index]
-        else:
-            index += 1
+    elif len(input) == 1:
+        return input[0]
+    elif len(input) > 1:
+        result: int = input[0]
+        next_index: int = 1
+        while next_index < len(input):
+            if input[next_index] >= result:
+                result = input[next_index]
+            else:
+                next_index += 1
     return result
 
 
