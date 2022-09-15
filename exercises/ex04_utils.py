@@ -30,8 +30,7 @@ def max(input: list[int]) -> int:
         while next_index < len(input):
             if input[next_index] >= result:
                 result = input[next_index]
-            else:
-                next_index += 1
+            next_index += 1
     return result
 
 
