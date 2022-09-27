@@ -3,16 +3,14 @@
 __author__ = "730433734"
 
 
-from unittest import result
-
-
-def only_evens(xs:list[int]) -> list[int]:
+def only_evens(xs: list[int]) -> list[int]:
     """Generating an all even list."""
     result: list[int] = []
     i: int = 0
     while i < len(xs):
-        if xs[i] % 2 == 0:
-            result.append(xs[i])
+        item: int = xs[i]
+        if item % 2 == 0:
+            result.append(item)
         i += 1
     return result
 
@@ -32,7 +30,7 @@ def concat(xs_1: list[int], xs_2: list[int]) -> list[int]:
 
 
 def sub(xs: list[int], start: int, end: int) -> list[int]:
-    """Generating a list which is a subset of the given list, between the specified start index and the end index - 1. """
+    """Generating a list which is a subset of the given list, between the specified start index and the end index - 1."""
     result: list[int] = []
     if start < 0:
         start = 0
