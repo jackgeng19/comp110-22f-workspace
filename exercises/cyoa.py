@@ -46,11 +46,13 @@ def greet() -> None:
 
 
 def again() -> bool:
+    """Ask play if want to play again."""
     decision = input("Do you want to play again? Reply \"y\" for YES and \"n\" for NO: ")
-    if decision == "y":
-        return True
-    elif decision =="n":
-        return False
+    while True:
+        if decision == "y":
+            return True
+        elif decision =="n":
+            return False
 
 
 def goodbye() -> None:
