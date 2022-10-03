@@ -51,7 +51,7 @@ def again() -> bool:
         decision = input("Do you want to play again? Reply \"y\" for YES and \"n\" for NO: ")
         if decision == "y":
             return True
-        elif decision =="n":
+        elif decision == "n":
             return False
 
 
