@@ -80,8 +80,8 @@ def feed() -> None:
     global points
     food: str = ""
     food = input("What food do want feed Pluto: ")
-    if points > 20:
-        print(f"Pluto is full after having{food} and cannot eat more!")
+    if points >= 20:
+        print(f"Pluto is full after having {food} and cannot eat more!")
     else:
         random_number = random.randint(1, 4)
         points += random_number
