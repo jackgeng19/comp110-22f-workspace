@@ -18,7 +18,7 @@ def test_invert_case1() -> None:
 
 def test_invert_case2() -> None:
     """Test for invert function."""
-    assert invert({'a': 'z', 'b' : 'y', 'c': 'x'}) == {'z': 'a', 'y': 'b', 'x': 'c'}
+    assert invert({'a': 'z', 'b': 'y', 'c': 'x'}) == {'z': 'a', 'y': 'b', 'x': 'c'}
 
 
 def test_favorite_color_single() -> None:
@@ -43,9 +43,9 @@ def test_count_empty() -> None:
 
 def test_count_case1() -> None:
     """Test for count function."""
-    assert count([1, 2, 3]) == {1: 1, 2: 1, 3: 1}
+    assert count(["a", "b", "c"]) == {"a": 1, "b": 1, "c": 1}
 
 
 def test_count_case2() -> None:
     """Test for count function."""
-    assert count([1, 2, 3, 1, 2, 1]) == {1: 3, 2: 2, 3: 1}
+    assert count(["a", "b", "c", "a", "b", "a"]) == {"a": 3, "b": 2, "c": 1}
