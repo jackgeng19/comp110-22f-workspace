@@ -37,7 +37,7 @@ def is_equal(lhs: Optional[Node], rhs: Optional[Node]) -> bool:
 def last(head: Optional[Node]) -> int:
     """Returns the last value of a Linked List, or raises a ValueError if the list is empty."""
     if head is None:
-        raise ValueError("last cannot be called with None")
+        raise ValueError("last cannot be called with None.")
     else:
         if head.next is None:
             return head.data
@@ -47,19 +47,18 @@ def last(head: Optional[Node]) -> int:
 
 def value_at(head: Optional[Node], index: int) -> int: 
     """Return the data of the Node stored at the given index."""
-    if head is None and index > 0:
+    if head is None:
         raise IndexError("Index is out of bounds on the list.")
-    elif isinstance(head, Node):
-        if index == 0:
-           return head.data
-        else: 
-            return value_at(head.next, index - 1)
+    elif index == 0:
+        return head.data
+    else: 
+        return value_at(head.next, index - 1)
 
 
 def max(head: Optional[Node]) -> int:
     """Return the maximum data value in the linked list."""
     if head is None:
-        raise ValueError("Cannot call max with None")
+        raise ValueError("Cannot call max with None.")
     else:
         if head.next is None:
             return head.data
@@ -71,16 +70,13 @@ def max(head: Optional[Node]) -> int:
 
 
 def linkify(items: list[int]) -> Optional[Node]:
+    """Create a Node object by a list input."""
     if len(items) == 0:
         return None
     else:
-        if len(items) == 1:
-            last: Node = Node(items[0], None)
-            return last
-        else:
-            head: Node = Node(items[0], None)
-            head.next = linkify(items[1:])
-            return head
+        head: Node = Node(items[0], None)
+        head.next = linkify(items[1:])
+        return head
 
 
 def scale(head: Optional[Node], factor: int) -> Optional[Node]:
@@ -88,10 +84,6 @@ def scale(head: Optional[Node], factor: int) -> Optional[Node]:
     if head is None:
         return None
     else:
-        if head.next is None:
-            last: Node = Node(head.data * factor, None)
-            return last
-        else:
-            start: Node = Node(head.data * factor, None)
-            start.next = scale(head.next, factor)
-            return start
+        start: Node = Node(head.data * factor, None)
+        start.next = scale(head.next, factor)
+        return start

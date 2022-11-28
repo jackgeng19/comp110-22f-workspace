@@ -30,6 +30,13 @@ def test_value_at_non_empty() -> None:
     assert value_at(linked, 0) == 10
 
 
+def test_value_at_non_empty_2() -> None:
+    """Test of value_at function."""
+    linked = Node(10, Node(20, Node(30, None)))
+    with pytest.raises(IndexError):
+        value_at(linked, 3)
+
+
 def test_max_empty() -> None:
     """Test of max function."""
     with pytest.raises(ValueError):
@@ -44,20 +51,26 @@ def test_max_non_empty() -> None:
 
 def test_linkify_empty() -> None:
     """Test of linkify function."""
-    assert linkify([]) == None
+    assert linkify([]) is None
 
 
 def test_linkify_non_empty() -> None:
     """Test of linkify function."""
     items = [10, 20, 30]
-    assert str(linkify(items)) == "10 -> 20 -> 30 -> None"
+    assert str(linkify(items)) == str(Node(10, Node(20, Node(30, None))))
+
+
+def test_linkify_one_item() -> None:
+    """Test of linkify function."""
+    items = [10]
+    assert str(linkify(items)) == str(Node(10, None))
 
 
 def test_scale_empty() -> None:
     """Test of scale function."""
-    assert scale(None, 2) == None
+    assert scale(None, 2) is None
 
 
 def test_scale_non_empty() -> None:
     """Test of scale function."""
-    assert str(scale(linkify([1, 2, 3]), 2)) == "2 -> 4 -> 6 -> None"
+    assert str(scale(linkify([1, 2, 3]), 2)) == str(Node(2, Node(4, Node(6, None))))
